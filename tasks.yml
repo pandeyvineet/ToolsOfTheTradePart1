@@ -1,0 +1,47 @@
+--- 
+- hosts: 192.168.33.20
+  become: yes    
+  tasks:    
+    - name: Run the equivalent of "apt-get update" as a separate step
+      apt:
+        update_cache: yes
+    - name: Install sqllite
+      apt:
+        name: sqlite3
+        state: present
+    - name: Create sqlite directory.
+      file: 
+        path: /var/lib/sqlite
+        state: directory
+        mode: 0775
+
+
+    #- name: Create a new database
+     # sqlite_db:
+      #  name: newdatabage
+       # state: present
+    #- name: Create tbl2 in the acme database with the DDL like tbl1 with testuser as an owner
+     # sqllite_table:
+      #  db: acme
+       # name: tbl2
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
